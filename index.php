@@ -22,16 +22,19 @@
         Player::addPlayerToDB($name, $jersey, $position);
     }
     ?>
-    <?php
+    <ul>
 
-    $player = new Player;
-    $query = $player->getAllPlayers();
+        <?php
+
+        $player = new Player;
+        $query = $player->getAllPlayers();
 
 
-    while ($row = mysqli_fetch_assoc($query)) {
-        echo "${row['id']}";
-    }
-    ?>
+        while ($row = mysqli_fetch_assoc($query)) {
+            echo "<li> ${row['playername']} </li>";
+        }
+        ?>
+    </ul>
 </div>
 
 
