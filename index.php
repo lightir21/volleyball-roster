@@ -1,8 +1,12 @@
-<?php include_once 'includes/header.php' ?>
-<?php include_once 'Player.php' ?>
+<?php include 'includes/header.php' ?>
+<?php include 'Player.php' ?>
+<style>
+    <?php include 'style.css' ?>
+</style>
+
 
 <?php require_once "db/Database.php" ?>
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+<form class="form-container" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
     <input type="text" name="name" placeholder="player name">
     <input type="number" name="jersey" placeholder="player jersey number">
     <input type="text" name="position" placeholder="player position">
@@ -18,12 +22,11 @@
         print_r($_POST);
         ['name' => $name, 'jersey' => $jersey, 'position' => $position] = $_POST;
 
-
         Player::addPlayerToDB($name, $jersey, $position);
     }
     ?>
-    <ul>
-
+    <ul class="list-container">
+        <h3>your roster</h3>
         <?php
 
         $player = new Player;
@@ -31,12 +34,31 @@
 
 
         while ($row = mysqli_fetch_assoc($query)) {
-            echo "<li> ${row['playername']} </li>";
+            echo "<li > ${row['jersey']} -  ${row['playername']}, position: ${row['position']}  </li>";
         }
         ?>
     </ul>
+
+
 </div>
 
+
+
+<div class="field">
+    <a href="index.php?position=left-top" class="field-item  left-top">4</a>
+    <a href="index.php?position=middle-top" class="field-item  middle-top">3</a>
+    <a href="index.php?position=right-top" class="field-item  right-top">2</a>
+    <a href="index.php?position=left-back" class="field-item  left-back">5</a>
+    <a href="index.php?position=middle-back" class="field-item  middle-back">6</a>
+    <a href="index.php?position=right-back" class="field-item right-back">1</a>
+    <?php
+    if (isset($_GET['position'])) {
+        include("includes/players-roster.php");
+    }
+
+    ?>
+
+</div>
 
 
 <?php include_once 'includes/footer.php' ?>
