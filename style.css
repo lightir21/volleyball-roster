@@ -1,16 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 *:link,
 *:visited {
   text-decoration: none;
   color: black;
-}
-
-body {
-  background-color: navajowhite;
+  font-weight: 800;
 }
 
 li {
@@ -18,16 +16,65 @@ li {
 }
 
 .container {
+  background-image: url("assets/michele-feola--t40mnV3vAU-unsplash-min.webp");
+  background-position: center;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.title {
+  font-size: 60px;
+  margin-top: 30px;
+  color: #fffadd;
+}
+
+.secondary {
+  color: #fffadd;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
 .form-container {
-  margin-top: 20px;
   display: flex;
   gap: 10px;
   justify-items: center;
+  flex-direction: column;
+}
+
+.input {
+  width: 200px;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid #fffadd;
+  border-radius: 3px;
+  background-color: #fffadd41;
+  padding-left: 10px;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.651);
+}
+
+.input-button {
+  padding: 12px 0;
+  background: none;
+  border: 1px solid #fffadd;
+  border-radius: 3px;
+  background-color: #fffadd41;
+  transition: all 0.2s;
+  font-weight: 800;
+}
+
+.input-button:hover {
+  background-color: #fffadda1;
 }
 
 .list-container {
@@ -42,6 +89,8 @@ li {
 .list-item {
   display: flex;
   justify-content: space-between;
+  font-weight: 800;
+  font-size: 18px;
 }
 
 .buttons-container {
@@ -52,35 +101,36 @@ li {
 
 .delete-player,
 .update-player {
-  color: blue;
+  color: #fffadd;
 }
 
 .field {
-  border: 1px solid black;
-  margin-top: 30px;
+  margin-right: 100px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 0;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 130px;
   position: relative;
 }
 
 .field-item {
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #fffadd;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 800;
 }
 
 .field-item:link,
 .field-item:visited {
   text-decoration: none;
-  color: brown;
+  color: black;
 }
 
 .pop-up-roster {
   position: absolute;
   left: 110%;
   width: max-content;
+  font-size: 18px;
 }
