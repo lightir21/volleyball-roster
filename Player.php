@@ -52,10 +52,20 @@ class Player
 
     public static function searchPlayerOnField($field, $players)
     {
-        $player = array_filter($players, function ($player) use ($field) {
+
+        $player_array = array_filter($players, function ($player) use ($field) {
             return $player['field'] == $field;
         });
-        return $player[0];
+
+        return reset($player_array);
+    }
+
+    public static function deleteFieldPropFromPlayer($field, $players)
+    {
+        $player = self::searchPlayerOnField($field, $players);
+        global $database;
+        $sql = "UPDATE player SET field='' WHERE id='${player['id']}'";
+        return mysqli_query($database->connection, $sql);
     }
 
     public static function addPlayerField($field, $id)

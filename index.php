@@ -66,7 +66,16 @@
 
 <?php
 
-print_r($_REQUEST);
+
+$left_top = Player::searchPlayerOnField('left-top', $players);
+$middle_top = Player::searchPlayerOnField('middle-top', $players);
+$right_top = Player::searchPlayerOnField('right-top', $players);
+$left_back = Player::searchPlayerOnField('left-back', $players);
+$middle_back = Player::searchPlayerOnField('middle-back', $players);
+$right_back = Player::searchPlayerOnField('right-back', $players);
+
+
+// print_r($_REQUEST);
 if (isset($_REQUEST['position'], $_REQUEST['player-id'])) {
     $field = $_REQUEST['position'];
     $id = $_REQUEST['player-id'];
@@ -74,13 +83,16 @@ if (isset($_REQUEST['position'], $_REQUEST['player-id'])) {
 };
 
 
+
+
 echo "<div class='field'>
-    <a href='index.php?position=left-top' class='field-item  left-top'> </a>
-    <a href='index.php?position=middle-top' class='field-item  middle-top'>3</a>
-    <a href='index.php?position=right-top' class='field-item  right-top'>2</a>
-    <a href='index.php?position=left-back' class='field-item  left-back'>5</a>
-    <a href='index.php?position=middle-back' class='field-item  middle-back'>6</a>
-    <a href='index.php?position=right-back' class='field-item right-back'>1</a>"
+    <a href='index.php?position=left-top' class='field-item  left-top'>" . ($left_top ? $left_top['playername'] : '4') . " </a>
+    <a href='index.php?position=middle-top' class='field-item  middle-top'>" . ($middle_top ? $middle_top['playername'] : '3') . "</a>
+    <a href='index.php?position=right-top' class='field-item  right-top'>" . ($right_top ? $right_top['playername'] : '2') . "</a>
+    <a href='index.php?position=left-back' class='field-item  left-back'>" . ($left_back ? $left_back['playername'] : '5') . "</a>
+    <a href='index.php?position=middle-back' class='field-item  middle-back'>" . ($middle_back ? $middle_back['playername'] : '6') . "</a>
+    <a href='index.php?position=right-back' class='field-item right-back'>" . ($right_back ? $right_back['playername'] : '1') . "</a>"
+
 ?>
 
 <?php
