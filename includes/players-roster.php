@@ -14,7 +14,7 @@
 
 
         while ($row = mysqli_fetch_assoc($query)) {
-            echo "<a href='index.php?playerID=${row['id']}' > ${row['jersey']} -  ${row['playername']}, position: ${row['position']}  </a>";
+            echo "<a href='${_SERVER['REQUEST_URI']}&player-id=${row['id']}' > ${row['jersey']} -  ${row['playername']}, position: ${row['position']}  </a>";
         }
         ?>
     </ul>

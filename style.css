@@ -53,8 +53,6 @@ li {
 .delete-player,
 .update-player {
   color: blue;
-  /* background: none;
-  border: none; */
 }
 
 .field {
@@ -78,7 +76,7 @@ li {
 .field-item:link,
 .field-item:visited {
   text-decoration: none;
-  color: blue;
+  color: brown;
 }
 
 .pop-up-roster {

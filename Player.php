@@ -3,7 +3,6 @@ require_once "db/Database.php";
 class Player
 {
 
-    public $players;
 
 
 
@@ -47,5 +46,22 @@ class Player
         $sql = "DELETE FROM player WHERE id='${id}'";
         mysqli_query($database->connection, $sql);
         $the_object->getAllPlayers();
+    }
+
+
+
+    public static function searchPlayerOnField($field, $players)
+    {
+        $player = array_filter($players, function ($player) use ($field) {
+            return $player['field'] == $field;
+        });
+        return $player[0];
+    }
+
+    public static function addPlayerField($field, $id)
+    {
+        global $database;
+        $sql = "UPDATE player SET field='${field}' WHERE id=${id}";
+        return mysqli_query($database->connection, $sql);
     }
 }
