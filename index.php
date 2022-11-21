@@ -4,6 +4,11 @@
     <?php include 'style.css' ?>
 </style>
 
+<!-- <form action='index.php/delete-player=${row['id']}' method='POST'>
+                    <input  type='hidden' value='${row['id']}' name='delete-player'></input>
+                    <input class='delete-player' type='submit' value='Delete'></input>
+                </form> -->
+
 
 <?php require_once "db/Database.php" ?>
 <form class="form-container" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
@@ -34,12 +39,25 @@
 
 
         while ($row = mysqli_fetch_assoc($query)) {
-            echo "<li > ${row['jersey']} -  ${row['playername']}, position: ${row['position']}  </li>";
+            echo "<li class='list-item'> ${row['jersey']} - ${row['playername']}, position: ${row['position']}
+            <div class='buttons-container'>
+                <a class='update-player' href='index.php?delete-player=${row['id']}'>Update</a>
+              <a class='delete-player' href='index.php?delete-player=${row['id']}'>Delete</a>
+            </div>
+        </li>";
         }
         ?>
     </ul>
 
+    <?php
 
+    if (isset($_REQUEST['delete-player'])) {
+        Player::deletePlayer($_REQUEST['delete-player']);
+        echo 'Successfully deleted';
+        header("Location: 'index.php'");
+    }
+
+    ?>
 </div>
 
 

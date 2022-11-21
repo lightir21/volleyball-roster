@@ -5,14 +5,7 @@ class Player
 
     public $players;
 
-    // public static function setPlayerAttr($name, $jersey, $position)
-    // {
-    //     $the_object = new self;
 
-    //     $the_object->playername = $name;
-    //     $the_object->jersey = $jersey;
-    //     $the_object->position = $position;
-    // }
 
     public static function addPlayerToDB($name, $jersey, $position)
     {
@@ -38,5 +31,21 @@ class Player
         $sql = 'SELECT * from player';
 
         return mysqli_query($database->connection, $sql);
+    }
+
+    public static function getOnePlayer($id)
+    {
+        global $database;
+        $sql = "SELECT * FROM users WHERE id=${id} LIMIT 1";
+        return mysqli_query($database->connection, $sql);
+    }
+
+    public static function deletePlayer($id)
+    {
+        $the_object = new self;
+        global $database;
+        $sql = "DELETE FROM player WHERE id='${id}'";
+        mysqli_query($database->connection, $sql);
+        $the_object->getAllPlayers();
     }
 }

@@ -3,6 +3,16 @@
   padding: 0;
 }
 
+*:link,
+*:visited {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  background-color: navajowhite;
+}
+
 li {
   list-style: none;
 }
@@ -25,6 +35,26 @@ li {
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  align-items: space-between;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-container {
+  margin-left: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.delete-player,
+.update-player {
+  color: blue;
+  /* background: none;
+  border: none; */
 }
 
 .field {
