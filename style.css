@@ -105,7 +105,7 @@ li {
 }
 
 .field {
-  margin-right: 100px;
+  margin-right: 60px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 130px;

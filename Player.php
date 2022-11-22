@@ -65,6 +65,7 @@ class Player
         $player = self::searchPlayerOnField($field, $players);
         global $database;
         $sql = "UPDATE player SET field='' WHERE id='${player['id']}'";
+        header("Location: index.php");
         return mysqli_query($database->connection, $sql);
     }
 

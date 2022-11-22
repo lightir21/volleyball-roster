@@ -21,6 +21,7 @@
             <input class="input" type="text" name="position" placeholder="player position">
             <input class="input-button" type="submit" value="add player" name="submit"></input>
         </form>
+
         <div class="rosterList">
             <?php
             $players = array();
@@ -28,7 +29,6 @@
             $db->connection;
 
             if (isset($_POST['submit'])) {
-                print_r($_POST);
                 ['name' => $name, 'jersey' => $jersey, 'position' => $position] = $_POST;
 
                 Player::addPlayerToDB($name, $jersey, $position);
@@ -46,7 +46,7 @@
                     $players[] = $row;
                     echo "<li class='list-item'> ${row['jersey']} - ${row['playername']}, position: ${row['position']}
             <div class='buttons-container'>
-                <a class='update-player' href='index.php?delete-player=${row['id']}'>Update</a>
+               
               <a class='delete-player' href='index.php?delete-player=${row['id']}'>Delete</a>
             </div>
         </li>";
@@ -58,8 +58,6 @@
 
             if (isset($_REQUEST['delete-player'])) {
                 Player::deletePlayer($_REQUEST['delete-player']);
-                echo 'Successfully deleted';
-                header("Location: index.php");
             }
 
             ?>
