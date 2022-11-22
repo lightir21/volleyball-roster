@@ -82,7 +82,6 @@ li {
   display: flex;
   flex-direction: column;
   gap: 8px;
-
   align-items: space-between;
 }
 
@@ -133,4 +132,12 @@ li {
   left: 110%;
   width: max-content;
   font-size: 18px;
+}
+
+.side-roster-item {
+  background-color: #fffadd73;
+}
+
+.close {
+  color: rgb(245, 241, 35);
 }

@@ -16,10 +16,10 @@
 
 
         <form class="form-container" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-            <input class="input" type="text" name="name" placeholder="player name">
-            <input class="input" type="number" name="jersey" placeholder="player jersey number">
-            <input class="input" type="text" name="position" placeholder="player position">
-            <input class="input-button" type="submit" value="add player" name="submit"></input>
+            <input class="input" type="text" name="name" placeholder="Player Name">
+            <input class="input" type="number" name="jersey" placeholder="Player Jersey Number">
+            <input class="input" type="text" name="position" placeholder="Player Position">
+            <input class="input-button" type="submit" value="Add Player" name="submit"></input>
         </form>
 
         <div class="rosterList">
@@ -35,7 +35,7 @@
             }
             ?>
             <ul class="list-container">
-                <h3>your roster</h3>
+                <h3>Your Roster</h3>
                 <?php
 
                 $player = new Player;
